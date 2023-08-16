@@ -33,4 +33,4 @@
 
 .vscode/.prettierrc
 .vscode/setting.json
-/test/fixtures/*
+/test/*
