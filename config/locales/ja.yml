@@ -1,0 +1,7 @@
+ja:
+  hello: "こんにちは"
+  title_home: "サンプルアプリへようこそ"
+  content_home: "これは、<a href='http://www.railstutorial.org/'> Ruby on Rails チュートリアル </a> サンプル アプリケーションのホームページです。"
+  sign_up_btn_home: "今すぐサインアップ!"
+  help: "ヘルプ"
+  content_help: "Ruby on Rails チュートリアルのヘルプについては、<a href='http://www.railstutorial.org/help'> Rails Tutorial help ページ </a>を参照してください。このサンプル アプリに関するヘルプについては、<a href='http://www.railstutorial.org/book'><em> Ruby on Rails チュートリアル </em>ブック </a>を参照してください。"
