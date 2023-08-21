@@ -1,14 +1,17 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    get "static_pages/home"
-    get "static_pages/help"
-    get "static_pages/contact"
-  end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+    root "static_pages#home"
+    get "static_pages/help", as: :help
+    get  "/about",   to: "static_pages#about"
+    get  "/contact", to: "static_pages#contact"
+    get "/signup", to: "users#new"
+    post "/signup", to: "users#create"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
-  get "/signup", to: "users#new"
-  post "/signup", to: "users#create"
-  resources :users, only: %i(new create show)
+    get "/login", to: "sessions#new"
+    post "/login", to: "sessions#create"
+
+    delete "/logout", to: "sessions#destroy"
+
+    resources :users, only: %i(new create show)
+  end
 end
