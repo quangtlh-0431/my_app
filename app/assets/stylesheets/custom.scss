@@ -3,7 +3,7 @@
 
 /* universal */
 body {
-  // padding-top: 60px;
+  padding-top: 60px;
 }
 
 section {
@@ -112,4 +112,10 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+/* Dropdown menu */
+
+.dropdown-menu.active {
+  display: block;
 }
