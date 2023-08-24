@@ -2,3 +2,4 @@ regex_valid:
   email: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 digits:
   length_50: 50
+  length_6: 6

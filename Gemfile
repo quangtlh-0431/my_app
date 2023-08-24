@@ -10,6 +10,12 @@ gem "rails", "~> 7.0.5"
 
 gem "bcrypt", "3.1.13"
 
+gem "faker", "2.21.0"
+
+gem "will_paginate", "3.3.1"
+
+gem "bootstrap-will_paginate", "1.0.0"
+
 gem "config"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
