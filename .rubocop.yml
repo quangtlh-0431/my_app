@@ -12,6 +12,7 @@ inherit_from:
 # Common configuration.
 AllCops:
   # Include gemspec and Rakefile
+  TargetRubyVersion: 3.2.x
   SuggestExtensions: false
   Include:
     - 'app/**/*'
