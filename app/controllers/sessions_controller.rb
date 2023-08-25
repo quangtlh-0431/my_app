@@ -15,9 +15,16 @@ class SessionsController < ApplicationController
 
   def authenticate_user user
     if user&.authenticate(params[:session][:password])
-      forwarding_url = session[:forwarding_url]
-      reset_and_remember user
-      redirect_to forwarding_url || user
+      if user.activated?
+        forwarding_url = session[:forwarding_url]
+        reset_and_remember user
+        redirect_to forwarding_url || user
+      else
+        message  = t("account_not_activated")
+        message += t("check_your_email_for_the_activation_link")
+        flash[:warning] = message
+        redirect_to root_url
+      end
     else
       handle_invalid_login
     end
