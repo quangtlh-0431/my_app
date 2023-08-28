@@ -1,10 +1,9 @@
 class User < ApplicationRecord
+  has_secure_password
   attr_accessor :remember_token, :activation_token, :reset_token
 
-  before_save :downcase_email
-  before_create :create_activation_digest
+  has_many :microposts, dependent: :destroy
 
-  has_secure_password
   validates :password,
             presence: true,
             length: {minimum: Settings.digits.length_6},
@@ -17,6 +16,9 @@ class User < ApplicationRecord
             format: {with: Settings.regex_valid.email}
   validates :name, presence: true
   validate :birthday_within_last_100_years
+
+  before_save :downcase_email
+  before_create :create_activation_digest
 
   def remember
     self.remember_token = User.new_token
@@ -59,6 +61,10 @@ class User < ApplicationRecord
 
   def send_password_reset_email
     UserMailer.password_reset(self).deliver_now
+  end
+
+  def feed
+    microposts
   end
 
   private
