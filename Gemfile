@@ -18,6 +18,9 @@ gem "bootstrap-will_paginate", "1.0.0"
 
 gem "config"
 
+gem "active_storage_validations", "0.9.8"
+gem "image_processing", "1.12.2"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 

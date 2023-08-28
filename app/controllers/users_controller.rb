@@ -8,7 +8,9 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
-  def show; end
+  def show
+    @microposts = @user.microposts.paginate(page: params[:page])
+  end
 
   def new
     @user = User.new
@@ -58,7 +60,7 @@ class UsersController < ApplicationController
     return if logged_in?
 
     store_location
-    flash[:danger] = t("Please_log_in")
+    flash[:danger] = t("please_log_in")
     redirect_to login_url, status: :see_other
   end
 
