@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i(index edit update destroy)
-  before_action :find_user, only: %i(edit update show destroy)
+  before_action :logged_in_user, except: %i(new create show)
+  before_action :find_user, except: %i(index new create)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
 
@@ -76,10 +76,10 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find_by id: params[:id]
+    @user = User.find_by id: params[:id] || params[:user_id]
     return if @user
 
-    flash[:warning] = t "Not_found_user"
+    flash[:warning] = t("not_found_user").capitalize
     redirect_to root_path
   end
 end
