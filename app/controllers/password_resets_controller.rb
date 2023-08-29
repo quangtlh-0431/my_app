@@ -44,7 +44,7 @@ class PasswordResetsController < ApplicationController
     @user = User.find_by email: params[:email]
     return if @user
 
-    flash[:danger] = t("Not_found_user")
+    flash[:danger] = t("not_found_user").capitalize
     redirect_to root_url
   end
 
